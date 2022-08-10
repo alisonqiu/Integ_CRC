@@ -1,0 +1,6 @@
+.MuiDataGrid-root .MuiDataGrid-columnHeaderCheckbox .MuiDataGrid-columnHeaderTitleContainer {
+    display: none;
+}
+.MuiDataGrid-cell[style]{
+    overflow-x: auto !important;
+}
