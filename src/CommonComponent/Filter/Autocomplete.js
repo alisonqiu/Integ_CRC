@@ -14,6 +14,9 @@ export default function Auto(props) {
     const [autocompleteOptions, setautocompleteOptions] = React.useState([]);
 
     const endpoint = (() => {
+
+        console.log("Page Type: ", pageType)
+
         switch (pageType) {
             case "enslaved":
                 return "past/enslaved/"
@@ -23,7 +26,7 @@ export default function Auto(props) {
                 return "voyage/"
         }
     })()
-    console.log("🚀 ~ file: Autocomplete.js ~ line 26 ~ endpoint ~ endpoint", endpoint)
+    
 
     console.log("Page Type:", pageType)
 

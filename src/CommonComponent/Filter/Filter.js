@@ -1,10 +1,11 @@
-import { Grid, Button, IconButton, AppBar, Toolbar, Drawer, Divider } from "@mui/material";
 import * as React from 'react';
+import { Grid, Button, IconButton, AppBar, Toolbar, Drawer, Divider, Menu } from "@mui/material";
 import { useMemo } from "react";
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
+import FilterAlt from "@mui/icons-material/FilterAlt";
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -32,6 +33,8 @@ export default function Filter(props) {
         }
       }, [pageType, dataset])
 
+    const [anchorElNav, setAnchorElNav] = React.useState(null);
+
     const [fullScreen, setFullScreen] = React.useState(false);
     const [rightScreen, setRightScreen] = React.useState(false);
 
@@ -40,6 +43,13 @@ export default function Filter(props) {
     const variables_for_map = ["voyage_itinerary__imp_principal_place_of_slave_purchase__geo_location__name", 
     "voyage_itinerary__imp_principal_port_slave_dis__geo_location__name"];
 
+    // Handle Menu Open and Close
+    const handleOpenNavMenu = (event) => {
+        setAnchorElNav(event.currentTarget);
+      };
+    const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+    };
 
     // Handle Full Screen and Exit
     const handleFullScreen = () => {
@@ -78,22 +88,60 @@ export default function Filter(props) {
     return (
         <div>
             {drawerOpen ?
-                <AppBar key="menu_appbar"
+                <AppBar key="menu_appbar_1"
                     position="fixed" 
                     color={color} 
                     elevation={0} 
-                    style={{ zIndex: 3, marginTop: "64px" }}
+                    style={{ zIndex: 3, paddingTop: "64px" }}
                 >
-                    <Toolbar key="menu_toolbar">
+                    <Toolbar key="menu_toolbar" 
+                        sx={{ display: { xs: "none", sm: "flex", md: "flex" } }}
+                    >
                         <Grid container key="menu_items" direction="row" spacing={1}>
                             {
                                 Object.keys(variables_tree).map((key) => {
                                     return (
-                                        <FilterSelector key={"menu_items_" + key} state={{ key, filter_obj, set_filter_obj, variables_tree, options_flat }} />
+                                        <FilterSelector key={"menu_items_" + key} state={{ key, filter_obj, set_filter_obj, variables_tree, options_flat, fontcolor:"#fff" }} />
                                     )
                                 })
                             }
                         </Grid>
+                    </Toolbar>
+                    <Toolbar key="menu_toolbar_2" 
+                        sx={{ display: { xs: "flex", sm: "none", md: "none" } }}>
+                        <IconButton
+                            size="large"
+                            aria-label="account of current user"
+                            aria-controls="menu-appbar"
+                            aria-haspopup="true"
+                            onClick={handleOpenNavMenu}
+                            color="whiteIcon"
+                            >
+                            <FilterAlt />
+                        </IconButton>
+                        <Menu
+                            id="menu-appbar"
+                            anchorEl={anchorElNav}
+                            anchorOrigin={{
+                                vertical: "bottom",
+                                horizontal: "left",
+                            }}
+                            keepMounted
+                            transformOrigin={{
+                                vertical: "top",
+                                horizontal: "left",
+                            }}
+                            open={Boolean(anchorElNav)}
+                            onClose={handleCloseNavMenu}
+                            >
+                                <Grid container key="menu_items" direction="column" spacing={1} onClick={handleCloseNavMenu}>
+                                    {Object.keys(variables_tree).map((key) => {
+                                        return (
+                                            <FilterSelector key={"menu_items_" + key} state={{ key, filter_obj, set_filter_obj, variables_tree, options_flat, fontcolor:"#000" }} />
+                                        )
+                                    })}
+                                </Grid>
+                        </Menu>
                     </Toolbar>
                 </AppBar>
                 : null}

@@ -67,9 +67,6 @@ L.Marker.prototype.options.icon = customIcon;
 // Drawing nodes and edges on the map
 export function ReadFeature(props) {
 
-  console.log("LatLong: ", props.latlong)
-
-
   const [isLoading, setIsLoading] = useState(false);
   const [isRegion, setIsRegion] = useState(true);
 
@@ -217,14 +214,12 @@ export function ReadFeature(props) {
       //if embarkation is selected; only show nodes on African side
       // if (props.radio == "embarkation") {
       if (props.key == "voyage_itinerary__imp_principal_place_of_slave_purchase__geo_location__name") {
-        console.log("Filter embarkation locations")
         return (
           feature.geometry.coordinates[0] >= -23.33496 &&
           !feature.properties.name.includes("ocean waypt")
         );
       } else {
         //if disembarkation is selected, only show nodes on American side
-        console.log("Filter Disembarkation locations")
         return (
           feature.geometry.coordinates[0] < -23.33496 &&
           !feature.properties.name.includes("ocean waypt")

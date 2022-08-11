@@ -48,7 +48,7 @@ export default function Navbar(props) {
         position="fixed"
         color={color}
         elevation={0}
-        style={{ zIndex: 3 }}
+        style={{ zIndex: 4 }}
       >
         <Toolbar disableGutters>
           <Typography
@@ -118,13 +118,18 @@ export default function Navbar(props) {
             >
               <MenuItem onClick={handleCloseNavMenu}>
                 {pageType !== "home" && pageType !== "documents" ? (
-                  <IconButton
+                  // <IconButton
+                  //   aria-label="open drawer"
+                  //   onClick={() => setDrawerOpen(!drawerOpen)}
+                  // >
+                  //   <FilterAlt />
+                  //   <Typography>Filter</Typography>
+                  // </IconButton>
+                  <Typography 
                     aria-label="open drawer"
-                    onClick={() => setDrawerOpen(!drawerOpen)}
-                  >
-                    <FilterAlt />
-                    <Typography>Filter</Typography>
-                  </IconButton>
+                    onClick={() => setDrawerOpen(!drawerOpen)}>
+                      Filter
+                  </Typography>
                 ) : null}
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>

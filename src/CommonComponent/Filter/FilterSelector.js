@@ -8,7 +8,7 @@ import { NestedMenuItem } from '../../Util/NestedMenuItem'
 
 function Cascading(props) {
 
-    const { key, filter_obj, set_filter_obj, variables_tree, options_flat } = props.state
+    const { key, filter_obj, set_filter_obj, variables_tree, options_flat, fontcolor } = props.state
     const handleClick = (e) => setAnchorEl(e.currentTarget);
     const handleClose = () => setAnchorEl(null);
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -76,7 +76,7 @@ function Cascading(props) {
                     <Button
                         variant="text"
                         onClick={handleClick}
-                        style={{ maxWidth: '280px', maxHeight: '30px', color: "#fff" }}
+                        style={{ maxWidth: '280px', maxHeight: '30px', color: fontcolor }}
                     >
                         {options_flat[key].flatlabel}
                     </Button>
@@ -88,7 +88,7 @@ function Cascading(props) {
                 <Button
                     variant="text"
                     onClick={() => handleOptionClick(key)}
-                    style={{ maxWidth: '280px', maxHeight: '30px', color: "#fff" }}
+                    style={{ maxWidth: '280px', maxHeight: '30px', color: fontcolor }}
                 >
                     {options_flat[key].flatlabel}
                 </Button>

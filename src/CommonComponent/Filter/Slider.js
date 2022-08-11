@@ -26,10 +26,11 @@ export default function GetSlider(props) {
     const AUTH_TOKEN = process.env.REACT_APP_AUTHTOKEN;
 
     const endpoint = (() => {
+        console.log("pagetype", pageType)
         switch (pageType) {
-            case "slaves":
+            case "enslaved":
                 return "past/enslaved/"
-            case "enslavers":
+            case "enslaver":
                 return "past/enslavers/"
             default:
                 return "voyage/"

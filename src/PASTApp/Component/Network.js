@@ -152,8 +152,8 @@ export default function Network(props) {
             //peer
             transactionData.enslaved_person.forEach((peer) => {
               if(peer.id !== item.id) {
-                tmp.addNode(peer.id, peer.enslaved.documented_name, "enslaved", "#ffaca3")
-                tmp.link(transactionData.voyage.id, peer.id, "peer")
+                tmp.addNode(peer.enslaved.id, peer.enslaved.documented_name, "enslaved", "#ffaca3")
+                tmp.link(transactionData.voyage.id, peer.enslaved.id, "peer")
               }
             })
             //enslaver
@@ -173,8 +173,8 @@ export default function Network(props) {
             //peer
             transactionData.enslaved_person.forEach((peer) => {
               if(peer.id !== item.id) {
-                tmp.addNode(peer.id, peer.enslaved.documented_name, "enslaved", "#ffaca3")
-                tmp.link(transactionData.id, peer.id, "peer")
+                tmp.addNode(peer.enslaved.id, peer.enslaved.documented_name, "enslaved", "#ffaca3")
+                tmp.link(transactionData.id, peer.enslaved.id, "peer")
               }
             })
             //enslaver
