@@ -120,7 +120,7 @@ export default function Table(props) {
     return (
       <Stack direction="row" spacing={2}>
         <div sx={{ border: 0 }}>
-          Rows Per column: &nbsp;&nbsp;
+          Rows Per Page: &nbsp;&nbsp;
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
