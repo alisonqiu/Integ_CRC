@@ -122,7 +122,6 @@ export function ReadFeature(props) {
       setArea(disembark);
     }
   });
-  //console.log("useEffect ~ complete_object", map.getZoom());
 
   useEffect(() => {
     var data = new FormData();
@@ -190,17 +189,10 @@ export function ReadFeature(props) {
   //       delete Object.assign(complete_object, {[area]: point })[groupby_fields_region[0]];
   //    }
   //    set_complete_object(complete_object)
-  // },[area])
-
-  //console.log("🚀 ~ file: Spatial.js ~ line 176 ~ useEffect ~ area complete_object", JSON.parse(JSON.stringify(complete_object)));
-  
+  // },[area])  
 
   useEffect(() => {
-    //console.log("UseEffect Complete Object: ", complete_object)
-
     // map.on('popupopen', function(){
-
-    console.log("Popup open function");
 
     const container = L.DomUtil.create("div");
 
@@ -260,15 +252,8 @@ export function ReadFeature(props) {
       L.geoJSON(nodes.features, {
         filter: filterNodes,
         onEachFeature: function (feature, layer) {
-          //console.log(props.search_object.dataset[0]==0)
-          // L.marker(layer["_latlng"]).unbindPopup()
 
           layer.on("click", function (e) {
-            console.log("Mouseover object: ", complete_object);
-
-            //complete_object[disembark] = [layer.feature.id, layer.feature.id];
-
-            console.log("OnClick Disembark: ", disembark)
 
             const temp = complete_object;
             delete temp[groupby_fields_region[0]];

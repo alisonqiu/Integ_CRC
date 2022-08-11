@@ -68,8 +68,8 @@ export default function IntraTabs(props) {
   const lat=layer._latlng.lat;
   const lng=layer._latlng.lng;
   //console.log("afafdafd", lat, lng);
-  const embarkDisable=props.dataset==0?(lng<=-26||lat>=-5.51?true:false):false;
-  const disembarkDisable=props.dataset==0?(lng>=-26&&lat<=-5.51?true:false):false;
+  const embarkDisable=props.dataset==0?(lng<=-26||lat>=15?true:false):false;
+  const disembarkDisable=props.dataset==0?(lng>=-26&&lat<=15?true:false):false;
   const [value, setValue] = React.useState(embarkDisable?'disembark':'purchase');
 
 

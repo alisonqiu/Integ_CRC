@@ -8,8 +8,8 @@ import { Animated } from "react-animated-css";
 import { Box, Button, Divider, List, ListItem } from "@mui/material";
 const Gallery = ({ components, scrollPosition }) => (
     <div>
-        {components.map((component) =>
-            <LazyLoadComponent placeholder={<Box sx={{ width: 300, height: 300 }} />} scrollPosition={scrollPosition} threshold={1} >
+        {components.map((component, index) =>
+            <LazyLoadComponent key={index} placeholder={<Box sx={{ width: 300, height: 300 }} />} scrollPosition={scrollPosition} threshold={1} >
                 <ListItem >
                     <Animated
                         animationIn="slideInLeft"

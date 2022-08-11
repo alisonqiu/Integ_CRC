@@ -123,22 +123,22 @@ export default function Archive() {
         fetchData().catch(console.error);
       },[total])
 
-      useEffect(() => {
-        const fetchData = async ()=> {
-          const promises = apiUrl.map(iifUri => {
-            return fetch(Object.values(iifUri), {
-              method: "GET",
-            }).then(res => Promise.resolve(res.json())).then(res => {
-            // setPics([...pics, <ArchiveItem img ={curImage(res.thumbnail[0].id)} title={res.label.none[0]} uri={iifUri.url} scrollPosition={window.scrollY} handleOpen={handleOpen}/>])
-              // temp.push(<ArchiveItem img ={curImage(res.thumbnail[0].id)} title={res.label.none[0]} uri={iifUri.url} scrollPosition={window.scrollY} handleOpen={handleOpen}/>);
-              return ({"title": res.label.none[0], "image": curImage(res.thumbnail[0].id),"uri":iifUri.url});
-            })
-          })
-          const response = await Promise.all(promises)
-          setData(response)
-        }
-        fetchData().catch(console.error);
-      }, [apiUrl])
+      // useEffect(() => {
+      //   const fetchData = async ()=> {
+      //     const promises = apiUrl.map(iifUri => {
+      //       return fetch(Object.values(iifUri), {
+      //         method: "GET",
+      //       }).then(res => Promise.resolve(res.json())).then(res => {
+      //       // setPics([...pics, <ArchiveItem img ={curImage(res.thumbnail[0].id)} title={res.label.none[0]} uri={iifUri.url} scrollPosition={window.scrollY} handleOpen={handleOpen}/>])
+      //         // temp.push(<ArchiveItem img ={curImage(res.thumbnail[0].id)} title={res.label.none[0]} uri={iifUri.url} scrollPosition={window.scrollY} handleOpen={handleOpen}/>);
+      //         return ({"title": res.label.none[0], "image": curImage(res.thumbnail[0].id),"uri":iifUri.url});
+      //       })
+      //     })
+      //     const response = await Promise.all(promises)
+      //     setData(response)
+      //   }
+      //   fetchData().catch(console.error);
+      // }, [apiUrl])
     // console.log(itemData)
 
     // for(const url of apiUrl){

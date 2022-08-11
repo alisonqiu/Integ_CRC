@@ -24,11 +24,11 @@ function ArchiveItem(props){
           setImage(curImage(res.thumbnail[0].id));
           setUri(iifUrl.url);
         });
-      }, [])
+      }, [iifUrl])
 
       return(
       <Grid item xs={12} sm={6} md={4} lg={3} width="40vh" >
-      <Box sx={{ position: 'relative' }} >
+      {image && <Box sx={{ position: 'relative' }} >
         <LazyLoadImage
           key={image}
           alt={"documents_".concat(title)}
@@ -37,7 +37,7 @@ function ArchiveItem(props){
           scrollPosition={scrollPosition}
           src={image}
           width="100%"
-          placeholder={<img src={Loading} alt="logo"/>}
+          // placeholder={<img src={Loading} width="400px" height="400px" alt="logo"/>}
           threshold={400}
         />
         <Box
@@ -63,7 +63,7 @@ function ArchiveItem(props){
             <Link href="#" underline="hover" variant="body3" color="#FFFFFF" onClick={() => handleOpen(uri)}>{title}</Link>
           {/* </Typography> */}
         </Box>
-      </Box>
+      </Box>}
       </Grid>
       )
 }

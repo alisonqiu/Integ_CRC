@@ -7,6 +7,7 @@ import './styles.css'
 import _ from 'lodash';
 import VoyageModal from "../../CommonComponent/VoyageModal";
 import { useWindowSize } from '@react-hook/window-size';
+import Story from "./Story";
 
 const auth_token = process.env.REACT_APP_AUTHTOKEN
 const base_url = process.env.REACT_APP_BASEURL;
@@ -422,8 +423,7 @@ export default function Sankey(props) {
     // console.log("renderStory")
     switch (node.type) {
       case "enslaved":
-        return "Story"
-        // return <Card sx={{flexGrow: 1, width: 400}}><Story target={data.find((slave) => slave.id === node.id)}/></Card>
+        return <Card sx={{flexGrow: 1, width: 400}}><Story target={data.find((slave) => slave.id === node.id)} slavery="enslaved"/></Card>
       case "transaction":
         return "TRANSACTION"
       case "enslaver":

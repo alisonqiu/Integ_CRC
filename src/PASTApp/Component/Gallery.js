@@ -3,7 +3,7 @@ import { useMemo, useEffect } from "react";
 import Story from "./Story";
 import TablePagination from "@mui/material/TablePagination";
 import "./styles.css";
-import {Button, Box, Stack, Grid, LinearProgress} from "@mui/material";
+import { Button, Box, Stack, Grid, LinearProgress } from "@mui/material";
 import TocIcon from "@mui/icons-material/Toc";
 
 export default function Gallery(props) {
@@ -19,8 +19,8 @@ export default function Gallery(props) {
     setPagination,
   } = props.state;
 
-  const gallery = useMemo(()=>{
-    return dataList.map((item, index) =>
+  const gallery = useMemo(() => {
+    return dataList.map((item, index) => (
       <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
         <Story
           key={item.id}
@@ -29,12 +29,12 @@ export default function Gallery(props) {
           remoteControl={handleDialogOpen}
           dataChange={setSelectedData}
           slavery={pageType}
-          canRemote={dataset === "1" || pageType === "enslaver"?true:false}
+          canRemote={dataset === "1" || pageType === "enslaver" ? true : false}
           dataset={dataset}
         />
       </Grid>
-    );
-  }, [dataList])
+    ));
+  }, [dataList]);
 
   const toolBarColor = useMemo(() => {
     if (pageType === "enslaver") {
@@ -68,14 +68,21 @@ export default function Gallery(props) {
             component="div"
             count={pagination.totalRows}
             page={pagination.currPage}
-            onPageChange={(event, newPage)=>setPagination({...pagination, currPage: newPage})}
+            onPageChange={(event, newPage) =>
+              setPagination({ ...pagination, currPage: newPage })
+            }
             rowsPerPage={pagination.rowsPerPage}
-            onRowsPerPageChange={(event) => setPagination({...pagination, rowsPerPage: parseInt(event.target.value, 10)})}
+            onRowsPerPageChange={(event) =>
+              setPagination({
+                ...pagination,
+                rowsPerPage: parseInt(event.target.value, 10),
+              })
+            }
             rowsPerPageOptions={[8, 12, 16, 20, 24]}
           />
         </Grid>
       </Grid>
-      {dataList.length === 0 ? <LinearProgress/> : null}
+      {dataList.length === 0 ? <LinearProgress /> : null}
       <Grid
         container
         spacing={{ xs: 6, md: 4, lg: 5 }}

@@ -125,7 +125,7 @@ export default function Story (props) {
     className="enslaved_story"
     >
       <CardHeader
-        title={`Story of {_.get(target, ["documented_name"], "Unknown Enslaved Person")}`}
+        title={_.get(target, ["documented_name"], "Unknown Enslaved Person")}
       />
       <CardContent>
           <Div>{prefix} was {_.get(target, ["captive_fate__name"], "not recorded with date")}, transported on voyage {_.get(target, ["voyage__voyage_id"], "* target NA *")}</Div>
