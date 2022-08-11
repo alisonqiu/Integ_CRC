@@ -23,6 +23,7 @@ export default function Gallery(props) {
     return dataList.map((item, index) =>
       <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
         <Story
+          key={item.id}
           target={item}
           dynamic={true}
           remoteControl={handleDialogOpen}

@@ -97,9 +97,9 @@ export default function Story (props) {
   }
 
   function makePastStage(props){
-    var index = 1;
-    props.transactions.map(ts => {
-    pastStage.push(<b>[record{index}] </b>)
+    var serial = 1;
+    props.transactions.map((ts,index) => {
+    pastStage.push(<b key={index}>[record{serial}] </b>)
       var res = "";
       ts.transaction.enslavers.map(enslaver => {
         res += checkEnslaver(enslaver) + "; ";
@@ -108,7 +108,7 @@ export default function Story (props) {
       pastStage.push(res);
       pastStage.push(_.get(ts, ["transaction", "date"], "NA") == "NA" ? ". " :  " on " + _.get(ts, ["transaction", "date"], "NA") + ". ");
       pastStage.push(" And ")
-      index++;
+      serial++;
     })
     
     if(pastStage.length == 0) return;
@@ -237,7 +237,7 @@ export default function Story (props) {
       <Collapse in={expand} timeout="auto" unmountOnExit>
         <CardContent>
           <Div>{_.get(target, ["principal_alias"], "Unknown Slaver")}, {slaverAlias.length > 1 && "also name as kk"} was first recorded at year {_.get(target, "first_active_year", "NA")}, and out of record at {_.get(target, "last_active_year", "NA")}</Div>
-          <Div>He has enslaved {_.get(target, "number_enslaved", "0")} {parseInt(_.get(target, "number_enslaved", "0")) < 2 ? "person" : "people"}{ _.get(target, ["principal_location__geo_location__name"], "NA") === "NA" ? "." : `, trading principally in ${_.get(target, ["principal_location", "geo_location", "name"], "NA")} area`}</Div>
+          <Div>He has enslaved {_.get(target, "number_enslaved", "0")} {parseInt(_.get(target, "number_enslaved", "0")) < 2 ? "person" : "people"}{ _.get(target, ["principal_location__geo_location__name"], "NA") === "NA" ? "." : `, trading principally in ${_.get(target, ["principal_location__geo_location__name"], "NA")} area`}</Div>
         </CardContent>
       </Collapse>
       
