@@ -110,8 +110,8 @@ export default function Archive() {
         var data = new FormData();
         data.append("hierarchical", "False");
         data.append("selected_fields", 'url');
-        data.append("results_per_page", 300);
-        data.append("results_page", page + 1);
+        data.append("results_per_page", total);
+        // data.append("results_page", page + 1);
         const res = await fetch('https://voyages3-api.crc.rice.edu/docs/',{
           method: 'POST',
           body: data,
@@ -121,7 +121,7 @@ export default function Archive() {
         setapiurl(result)
       }
         fetchData().catch(console.error);
-      },[page,rowsPerPage])
+      },[total])
 
       useEffect(() => {
         const fetchData = async ()=> {
