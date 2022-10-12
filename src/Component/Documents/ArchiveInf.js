@@ -167,13 +167,8 @@ export default function Archive() {
       <InfiniteScroll
       dataLength={itemData.length} //This is important field to render the next data
       next={fetchData}
-      getScrollParent={()=>document.getElementById('infinite-container')} 
-      useWindow={false}
-
-      // pullDownToRefresh = {true}
-      // refreshFunction={()=>{
-      //   console.log('refreshed')
-      // }}
+      // getScrollParent={()=>document.getElementById('infinite-container')} 
+      // useWindow={false}
       hasMore={hasMore}
       loader={<h4>Loading...</h4>}
       endMessage={
@@ -181,18 +176,8 @@ export default function Archive() {
         </p>
       } >
 
-            {/* <TablePagination
-              component="div"
-              count={total}
-              page={page}
-              onPageChange={handleChangePage}
-              rowsPerPage={rowsPerPage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-              rowsPerPageOptions={[16, 25, 36, 49, 64]}
-            /> */}
-
          
-            <ImageList sx={{ width: width, height: height }} cols={
+            <ImageList sx={{ width: width, height: "99%" }} cols={
               Math.sqrt(rowsPerPage)
               } gap={30} >
      
