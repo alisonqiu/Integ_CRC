@@ -21,10 +21,6 @@ import { ConstructionOutlined } from "@mui/icons-material";
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import { set } from "lodash";
-<<<<<<< HEAD:src/Component/VoyagePage/Result/Bar.js
-
-=======
->>>>>>> 09eeacd8760556187b0de5261636723e209efb52:src/VoyageApp/Component/VoyageBar.js
 const AUTH_TOKEN = process.env.REACT_APP_AUTHTOKEN;
 axios.defaults.baseURL = process.env.REACT_APP_BASEURL;
 axios.defaults.headers.common["Authorization"] = AUTH_TOKEN;
@@ -72,14 +68,7 @@ export default function Bar(props) {
   const [aggregation, setAgg] = React.useState("sum");
 
   const [showAlert, setAlert] = useState(false);
-<<<<<<< HEAD:src/Component/VoyagePage/Result/Bar.js
-
-  const [dataGet, setdataGet] = useState({})
-
-  // const [str, setStr] = useState("")
-=======
   const [str, setStr] = useState("")
->>>>>>> 09eeacd8760556187b0de5261636723e209efb52:src/VoyageApp/Component/VoyageBar.js
 
   // console.log("🏀", barData)
 
@@ -116,61 +105,6 @@ export default function Bar(props) {
   useEffect(() => {
     setIsLoading(true);
     setAlert(false)
-<<<<<<< HEAD:src/Component/VoyagePage/Result/Bar.js
-    // var value = option.value;
-   let yfieldArr = []
-  //  let myMap1 = new Map()
-
-
-    const fetchData = async () => {
-      var data = new FormData();
-      data.append("groupby_fields", option.field);
-      data.append("agg_fn", aggregation);
-      // data.append("hierarchical", "False");
-      data.append("cachename", "voyage_bar_and_donut_charts");
-      for (var property in search_object) {
-        search_object[property].forEach((v) => {
-          data.append(property, v);
-        });
-      }
-
-    chips.map( (element) => {
-      data.append("groupby_fields", element);
-     yfieldArr.push(element)
-     console.log("🚀[chips]: ", yfieldArr)
-      // myMap1.set(index,element)
-    })
-
-    // console.log("Map🥭",myMap1)
-
-    console.log("🫘yfieldArr: ",yfieldArr)
-    
-    fetch('https://voyages3-api.crc.rice.edu/voyage/groupby',{
-        method: "POST",
-        body: data,
-        headers: {'Authorization':AUTH_TOKEN}
-      }).then(res => res.json())
-      .then(function (response) {
-        console.log("{🔥data}", response)
-
-        // setdataGet(response)
-    let arr = []
-    Object.values(response).forEach((element,index) =>{
-      console.log("💰Object.keys(element)", Object.keys(element))
-      console.log("💰Object.values(element", Object.values(element))
-
-          arr.push({
-          x: Object.keys(element),
-          y: Object.values(element),
-          type: "bar",
-          name: `aggregation: ${aggregation} label: ${options_flat[yfieldArr[index]].flatlabel}`,
-          barmode: "group",
-        })
-    })
-
-
-    if (Object.values(response).indexOf('false') > -1) {
-=======
  
     let yfieldArr = []
 
@@ -227,67 +161,12 @@ export default function Bar(props) {
           })
 
           if (Object.values(response).indexOf('false') > -1) {
->>>>>>> 09eeacd8760556187b0de5261636723e209efb52:src/VoyageApp/Component/VoyageBar.js
       // window.alert(`Sorry, this combination can't work:
       //       ${str}
       // `);
       // window.location.reload(true);
       setAlert(true)
    }
-<<<<<<< HEAD:src/Component/VoyagePage/Result/Bar.js
-
-   setBarData(
-    arr
-   )
-
-   console.log("[🌲arr]", arr)
-      })
-
-
-// TO-DO 1
-// label problem: do not use the last one always 
-
-// TO-DO 2
-// can not get the fetch data from the first time, and always get the last timew data
-
-
-    // dataGet.forEach( (dataElement,index) =>{
-    //   console.log("🐔 dataElement is ", dataElement)
-    //   // console.log("type", typeof(Object.values(dataElement)[0]))
-    //     arr.push({
-    //       x: Object.keys(dataElement),
-    //       y: Object.values(dataElement),
-    //       type: "bar",
-    //       name: `aggregation: ${aggregation} label: ${options_flat[yfieldArr[index]].flatlabel}`,
-    //       barmode: "group",
-    //     })
-    // })
-
-    // tempstr = arr.map(function(elem){
-    //     return elem.name ;
-    // }).join("\n\r");
-
-    // setStr(tempstr)
-
-
-
-    // console.log("arr value🎫", arr[0].name)
-     
-      }
-
-      setIsLoading(false)
-
-      fetchData().catch(console.error) 
-  }, [ chips, option.field, aggregation, search_object]);
-
-      
-  // console.log("str🍌", str)
-// console.log("🍌", barData)
-// barData.map((index) =>{
-//   console.log("🍎", index.name)
-//   console.log("🍊", typeof(index.name))
-// })
-=======
 
    setBarData(
     arr
@@ -301,7 +180,6 @@ export default function Bar(props) {
     fetchData().catch(console.error)
   }, [chips, option.field, aggregation, filter_object, dataset]);
 
->>>>>>> 09eeacd8760556187b0de5261636723e209efb52:src/VoyageApp/Component/VoyageBar.js
 
   const alertBar = () => {
     if (showAlert) {
@@ -319,13 +197,8 @@ export default function Bar(props) {
   return (
     <div>
       <div>
-<<<<<<< HEAD:src/Component/VoyagePage/Result/Bar.js
-          {/* <Button onClick={()=>console.log("🔥barData🔥:", barData)}>print data</Button> */}
-        <Box sx={{ maxWidth: width > 500 ? width * 0.9 : width * 0.7 }}>
-=======
         {/* <Button onClick={()=>console.log("🔥barData🔥:", barData)}>print data</Button> */}
         <Box sx={{maxWidth: width > 500 ? width * 0.9 : width * 0.7}}>
->>>>>>> 09eeacd8760556187b0de5261636723e209efb52:src/VoyageApp/Component/VoyageBar.js
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">X Field</InputLabel>
             <Select

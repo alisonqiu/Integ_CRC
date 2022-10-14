@@ -177,7 +177,7 @@ export default function Archive() {
       } >
 
          
-            <ImageList sx={{ width: width, height: "99%" }} cols={
+            <ImageList sx={{ width: width, height: "100%" }} cols={
               Math.sqrt(rowsPerPage)
               } gap={30} >
      

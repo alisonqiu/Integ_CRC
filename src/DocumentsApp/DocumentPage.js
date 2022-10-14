@@ -1,5 +1,6 @@
 import React from "react";
-import Archive from "./Component/Archive";
+//import Archive from "./Component/Archive";
+import Archive from "./Component/ArchiveInf";
 // import ResponsiveAppBar from "../NavBar";
 import Navbar from "../CommonComponent/NavBar";
 
