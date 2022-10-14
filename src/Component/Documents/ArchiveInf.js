@@ -57,13 +57,12 @@ function curImage(src){
 }
 export default function Archive() {
     const [width, height] = useWindowSize()
-    console.log("🚀 ~ file: Archive.js ~ line 60 ~ Archive ~ height", height)
     const [manifest, setManifest]= useState({});
     const [open, setOpen] = useState(false);
     const [apiUrl,setapiurl] = useState([])
     const [itemData, setData] = useState([])
     const [hasMore, setHasMore] = useState(true)
-    console.log("🚀 ~ file: Archive.js ~ line 65 ~ Archive ~ itemData", itemData.length)
+    console.log("🚀 ~ file: Archive.js ~ line 65 ~ Archive ~ itemData", itemData)
 
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(16);
@@ -151,6 +150,7 @@ export default function Archive() {
           })
           const response = await Promise.all(promises)
           setData([...itemData, ...response])
+          console.log("🚀 ~ file: ArchiveInf.js ~ line 209 ~ Archive ~ itemData", itemData)
           if(itemData.length>300){
             setHasMore(false)
           }
