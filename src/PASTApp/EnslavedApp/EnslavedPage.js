@@ -151,7 +151,6 @@ export default function EnslavedPage(props) {
   }
 
   useEffect(() => {
-    //console.log("fetching...", pagination);
     setIsLoading(true);
     setDataList([]);
     let queryData = new FormData();

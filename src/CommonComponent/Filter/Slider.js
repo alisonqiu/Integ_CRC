@@ -16,6 +16,7 @@ export default function GetSlider(props) {
 
 
     const {key, filter_obj, set_filter_obj, options_flat, pageType} = props.state;
+    console.log("🚀 ~ file: Slider.js ~ line 19 ~ GetSlider ~ filter_obj", filter_obj)
 
     const [range, setRange] = React.useState([0, 0])
     const [value, setValue] = React.useState([range[0] / 2, range[1] / 2])
